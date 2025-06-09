@@ -3,176 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>企业信息展示</title>
+    <title>华纺国际贸易 - 专业纺织品供应商</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
         }
         
         .container {
             max-width: 100%;
-            padding: 15px;
+            padding: 0;
         }
         
         header {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, #1a4b8c, #3a7bd5);
             color: white;
-            padding: 20px 0;
+            padding: 15px 0 20px;
             text-align: center;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/texture.png') repeat;
+            opacity: 0.1;
+            pointer-events: none;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             margin: 0 auto 10px;
-            border-radius: 50%;
+            border-radius: 8px;
             background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2c3e50;
+            color: #1a4b8c;
             font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         h1 {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
         .slogan {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .quick-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .quick-contact a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quick-contact i {
+            margin-right: 5px;
             font-size: 14px;
-            opacity: 0.8;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 180px;
+            background: url('https://example.com/fabric-banner.jpg') center/cover;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 10px 15px;
+        }
+        
+        .banner-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .banner-desc {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .nav-card:active {
+            transform: scale(0.98);
+        }
+        
+        .nav-card i {
+            font-size: 24px;
+            color: #1a4b8c;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .nav-card h3 {
+            font-size: 14px;
+            color: #333;
         }
         
         section {
             background-color: white;
-            margin: 15px 0;
-            padding: 20px;
+            margin: 15px 10px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
         
         h2 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        p {
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .contact-item i {
-            margin-right: 10px;
-            color: #3498db;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .product {
-            margin-bottom: 15px;
-        }
-        
-        .product img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 8px;
-        }
-        
-        .product h3 {
+            color: #1a4b8c;
             font-size: 16px;
-            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .more-link {
+            font-size: 12px;
+            color: #888;
+            text-decoration: none;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 100px;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 8px;
+        }
+        
+        .product-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .product-type {
+            font-size: 11px;
+            color: #888;
+        }
+        
+        .news-item {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .news-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .news-date {
+            font-size: 12px;
+            color: #888;
+            width: 50px;
+            flex-shrink: 0;
+        }
+        
+        .news-title {
+            font-size: 13px;
+            flex-grow: 1;
         }
         
         footer {
+            background-color: #1a4b8c;
+            color: white;
+            padding: 20px 15px;
+            font-size: 12px;
             text-align: center;
-            padding: 15px;
-            color: #7f8c8d;
-            font-size: 13px;
+            margin-top: 20px;
         }
         
-        .map {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            border-radius: 5px;
+        .footer-links {
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-top: 10px;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            opacity: 0.8;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">公司LOGO</div>
-        <h1>某某科技有限公司</h1>
-        <p class="slogan">创新科技，引领未来</p >
+        <div class="header-overlay"></div>
+        <div class="logo">华纺</div>
+        <h1>华纺国际贸易有限公司</h1>
+        <p class="slogan">全球优质纺织品供应商 | 一站式采购解决方案</p>
+        <div class="quick-contact">
+            <a href="tel:400-123-4567"><i class="fas fa-phone-alt"></i> 电话咨询</a>
+            <a href="mailto:info@huafangtextile.com"><i class="fas fa-envelope"></i> 邮件联系</a>
+        </div>
     </header>
     
-    <div class="container">
-        <section id="about">
-            <h2>关于我们</h2>
-            <p>某某科技有限公司成立于2010年，是一家专注于人工智能和大数据技术的高科技企业。我们致力于为客户提供最优质的解决方案和服务。</p >
-            <p>公司拥有强大的研发团队和丰富的行业经验，已为超过500家企业提供了专业的技术支持。</p >
-        </section>
-        
-        <section id="products">
-            <h2>产品服务</h2>
-            <div class="product">
-                < img src="https://via.placeholder.com/300x200?text=产品1" alt="产品1">
-                <h3>智能数据分析平台</h3>
-                <p>为企业提供全方位的数据分析解决方案，助力企业决策。</p >
-            </div>
-            <div class="product">
-                < img src="https://via.placeholder.com/300x200?text=产品2" alt="产品2">
-                <h3>AI客服系统</h3>
-                <p>24小时在线智能客服，提升客户服务效率。</p >
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>联系我们</h2>
-            <div class="contact-item">
-                <i>📞</i>
-                <span>电话：400-123-4567</span>
-            </div>
-            <div class="contact-item">
-                <i>✉️</i>
-                <span>邮箱：info@company.com</span>
-            </div>
-            <div class="contact-item">
-                <i>🏢</i>
-                <span>地址：北京市海淀区科技园路88号</span>
-            </div>
-            <div class="map">
-                [公司位置地图]
-            </div>
-        </section>
+    <div class="banner">
+        <div class="banner-overlay">
+            <div class="banner-title">2023秋季新品面料上市</div>
+            <div class="banner-desc">精选优质棉麻、丝绸、化纤等上百种新品</div>
+        </div>
     </div>
     
+    <div class="nav-cards">
+        <a href="#products" class="nav-card">
+            <i class="fas fa-tshirt"></i>
+            <h3>产品中心</h3>
+        </a>
+        <a href="#about" class="nav-card">
+            <i class="fas fa-building"></i>
+            <h3>关于我们</h3>
+        </a>
+        <a href="#quality" class="nav-card">
+            <i class="fas fa-award"></i>
+            <h3>品质认证</h3>
+        </a>
+        <a href="#contact" class="nav-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>联系我们</h3>
+        </a>
+    </div>
+    
+    <section id="hot-products">
+        <div class="section-header">
+            <h2>热销产品</h2>
+            <a href="#products" class="more-link">查看更多 <i class="fas fa-angle-right"></i></a>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://example.com/fabric1.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-name">纯棉斜纹布</div>
+                    <div class="product-type">服装面料</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://example.com/fabric2.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-name">亚麻混纺布</div>
+                    <div class="product-type">家居面料</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://example.com/fabric3.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-name">涤纶雪纺</div>
+                    <div class="product-type">女装面料</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://example.com/fabric4.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-name">牛仔布</div>
+                    <div class="product-type">裤装面料</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="news">
+        <div class="section-header">
+            <h2>公司动态</h2>
+            <a href="#news" class="more-link">查看更多 <i class="fas fa-angle-right"></i></a>
+        </div>
+        <div class="news-item">
+            <div class="news-date">09-15</div>
+            <div class="news-title">参加2023上海国际纺织面料展览会</div>
+        </div>
+        <div class="news-item">
+            <div class="news-date">08-28</div>
+            <div class="news-title">新增环保再生纤维系列产品</div>
+        </div>
+        <div class="news-item">
+            <div class="news-date">07-10</div>
+            <div class="news-title">与越南纺织厂达成战略合作协议</div>
+        </div>
+    </section>
+    
+    <section id="advantages">
+        <h2>我们的优势</h2>
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+            <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 18px; margin-right: 10px;"></i>
+            <span style="font-size: 14px;">全球采购网络，源头厂家直供</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+            <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 18px; margin-right: 10px;"></i>
+            <span style="font-size: 14px;">严格质量把控，通过OEKO-TEX认证</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+            <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 18px; margin-right: 10px;"></i>
+            <span style="font-size: 14px;">专业团队提供一对一服务</span>
+        </div>
+    </section>
+    
     <footer>
-        <p>© 2023 某某科技有限公司 版权所有</p >
+        <div class="footer-links">
+            <a href="#about">关于我们</a>
+            <a href="#contact">联系方式</a>
+            <a href="#join">加入我们</a>
+        </div>
+        <div class="copyright">
+            © 2023 华纺国际贸易有限公司 版权所有<br>
+            沪ICP备12345678号
+        </div>
     </footer>
 </body>
 </html>
